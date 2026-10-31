@@ -1,99 +1,97 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PÍCARA — Lo natural, a tu manera</title>
-  <meta name="description" content="Joyas en plata 925 y vermeil de oro, inspiradas en la naturaleza. Diseñadas en Madrid.">
-  <meta name="robots" content="noindex">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PÍCARA — Lo natural, a tu manera</title>
+<meta name="description" content="Joyas en plata 925 y vermeil de oro, inspiradas en la naturaleza. Diseñadas en Madrid para llevarse de muchas formas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
-  <div id="site-header"></div>
+<div id="site-header"></div>
 
-  <main>
-    <section class="wrap hero">
-      <div class="media bg-musgo">
-        <svg class="motif" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.6" aria-hidden="true"><line x1="50" y1="22" x2="50" y2="94"/><circle cx="50" cy="17" r="4.5"/><ellipse cx="29" cy="34" rx="21" ry="5.5" transform="rotate(-10 29 34)"/><ellipse cx="71" cy="34" rx="21" ry="5.5" transform="rotate(10 71 34)"/><ellipse cx="31" cy="46" rx="18" ry="4.8" transform="rotate(12 31 46)"/><ellipse cx="69" cy="46" rx="18" ry="4.8" transform="rotate(-12 69 46)"/></svg>
-        <span class="ph" data-i18n="ph_hero"></span>
+<main>
+  <section class="wrap hero">
+    <div class="media bg-musgo">
+      <svg class="motif" viewBox="0 0 100 100" fill="none" stroke="#C9D1C1" stroke-width="0.6" aria-hidden="true"><line x1="50" y1="22" x2="50" y2="94"/><circle cx="50" cy="17" r="4.5"/><ellipse cx="29" cy="34" rx="21" ry="5.5" transform="rotate(-10 29 34)"/><ellipse cx="71" cy="34" rx="21" ry="5.5" transform="rotate(10 71 34)"/><ellipse cx="31" cy="46" rx="18" ry="4.8" transform="rotate(12 31 46)"/><ellipse cx="69" cy="46" rx="18" ry="4.8" transform="rotate(-12 69 46)"/></svg>
+      <span class="ph" data-i18n="ph_hero"></span>
+    </div>
+    <div class="hero-copy">
+      <span class="mono muted" data-i18n="hero_kicker"></span>
+      <h1><span data-i18n="hero_title_a"></span> <span class="italic" data-i18n="hero_title_b"></span></h1>
+      <p data-i18n="hero_body"></p>
+      <div class="actions">
+        <a class="btn btn-primary" href="shop.html" data-i18n="cta_shop"></a>
+        <a class="btn btn-ghost" href="#formas" data-i18n="cta_ways"></a>
       </div>
-      <div class="hero-copy">
-        <span class="mono muted" data-i18n="hero_kicker"></span>
-        <h1><span data-i18n="hero_title_a"></span> <span class="italic" data-i18n="hero_title_b"></span></h1>
-        <p data-i18n="hero_body"></p>
-        <div class="actions">
-          <a class="btn btn-primary" href="shop.html" data-i18n="cta_shop"></a>
-          <a class="btn btn-ghost" href="#formas" data-i18n="cta_ways"></a>
+    </div>
+  </section>
+
+  <section id="formas" class="wrap section">
+    <div class="section-head">
+      <h2><span data-i18n="ways_title_a"></span> <span class="italic" data-i18n="ways_title_b"></span></h2>
+      <p data-i18n="ways_body"></p>
+    </div>
+    <div class="grid" id="ways-grid"></div>
+  </section>
+
+  <section id="colecciones" class="band">
+    <div class="wrap section">
+      <div class="section-head"><h2 data-i18n="collections"></h2></div>
+      <div class="grid" id="collections-grid"></div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head">
+      <h2 data-i18n="first_pieces"></h2>
+      <a href="shop.html" data-i18n="see_all"></a>
+    </div>
+    <div class="grid" id="first-grid"></div>
+  </section>
+
+  <section class="story">
+    <div class="wrap">
+      <blockquote><span class="italic" data-i18n="story_quote_a"></span> <span data-i18n="story_quote_b"></span></blockquote>
+      <div class="story-side">
+        <p data-i18n="story_body"></p>
+        <a href="about.html" style="color: var(--on-dark); font-weight: 500" data-i18n="story_link"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap facts">
+    <div class="fact"><strong data-i18n="fact_silver"></strong><span data-i18n="fact_silver_d"></span></div>
+    <div class="fact"><strong data-i18n="fact_vermeil"></strong><span data-i18n="fact_vermeil_d"></span></div>
+    <div class="fact"><strong data-i18n="fact_nickel"></strong><span data-i18n="fact_nickel_d"></span></div>
+    <div class="fact"><strong data-i18n="fact_hand"></strong><span data-i18n="fact_hand_d"></span></div>
+  </section>
+
+  <section class="waitlist">
+    <div class="wrap">
+      <div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 12px">
+        <h2 data-i18n="wl_title"></h2>
+        <p data-i18n="wl_body"></p>
+      </div>
+      <form class="wl-form" novalidate>
+        <div class="field">
+          <label class="mono" for="wl-email" data-i18n="wl_label"></label>
+          <input id="wl-email" type="email" autocomplete="email" required data-i18n-placeholder="wl_placeholder">
         </div>
-      </div>
-    </section>
+        <button type="submit" class="btn btn-light" data-i18n="wl_button"></button>
+        <p class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
 
-    <section id="formas" class="wrap section">
-      <div class="section-head">
-        <h2><span data-i18n="ways_title_a"></span> <span class="italic" data-i18n="ways_title_b"></span></h2>
-        <p data-i18n="ways_body"></p>
-      </div>
-      <div class="grid" id="ways-grid"></div>
-    </section>
-
-    <section id="colecciones" class="band">
-      <div class="wrap section">
-        <div class="section-head"><h2 data-i18n="collections"></h2></div>
-        <div class="grid" id="collections-grid"></div>
-      </div>
-    </section>
-
-    <section class="wrap section">
-      <div class="section-head">
-        <h2 data-i18n="first_pieces"></h2>
-        <a href="shop.html" data-i18n="see_all"></a>
-      </div>
-      <div class="grid" id="first-grid"></div>
-    </section>
-
-    <section class="story">
-      <div class="wrap">
-        <blockquote><span class="italic" data-i18n="story_quote_a"></span> <span data-i18n="story_quote_b"></span></blockquote>
-        <div class="story-side">
-          <p data-i18n="story_body"></p>
-          <a href="about.html" style="color: inherit; font-weight: 500;" data-i18n="story_link"></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap facts">
-      <div class="fact"><strong data-i18n="fact_silver"></strong><span data-i18n="fact_silver_d"></span></div>
-      <div class="fact"><strong data-i18n="fact_vermeil"></strong><span data-i18n="fact_vermeil_d"></span></div>
-      <div class="fact"><strong data-i18n="fact_nickel"></strong><span data-i18n="fact_nickel_d"></span></div>
-      <div class="fact"><strong data-i18n="fact_hand"></strong><span data-i18n="fact_hand_d"></span></div>
-    </section>
-
-    <section class="waitlist">
-      <div class="wrap">
-        <div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 12px;">
-          <h2 data-i18n="wl_title"></h2>
-          <p data-i18n="wl_body"></p>
-        </div>
-        <form class="wl-form" novalidate>
-          <div class="field">
-            <label class="mono" for="wl-email" data-i18n="wl_label"></label>
-            <input id="wl-email" type="email" autocomplete="email" required data-i18n-placeholder="wl_placeholder">
-          </div>
-          <button type="submit" class="btn btn-light" data-i18n="wl_button"></button>
-          <p class="form-msg" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <div id="site-footer"></div>
-
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/catalog.js"></script>
-  <script src="assets/js/app.js"></script>
+<div id="site-footer"></div>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>

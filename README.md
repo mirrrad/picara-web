@@ -1,73 +1,63 @@
-# PÍCARA — website prototype
+# PÍCARA – website prototype
 
-First working draft of the PÍCARA jewellery website (silver and gold vermeil, nature motifs, designed in Madrid, sold EU-wide).
+First working draft of the PÍCARA website. Static HTML, CSS and plain JavaScript. No build step.
 
-> **Status:** prototype. All prices, sizes, delivery times and photos are **placeholders**. The checkout is disabled. The real store will run on **Shopify**.
+> **Prototype.** All prices, sizes, stock and photos are placeholders. Checkout is disabled.
+> The production shop will run on **Shopify**. This repo is the design and content reference for that theme.
 
 ## Run it
 
-No build step. Open `index.html` in a browser, or serve the folder:
+Open `index.html` in a browser, or serve the folder:
 
 ```bash
 python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
-To publish a preview: GitHub → Settings → Pages → Deploy from branch `main`, folder `/ (root)`.
+### Publish a preview (GitHub Pages)
 
-## Structure
+Repo **Settings → Pages → Source: Deploy from a branch → `main` / root**. The site is then live at `https://<user>.github.io/picara-web/`.
+Note: Pages on a private repo needs a paid GitHub plan. Otherwise use Netlify / Cloudflare Pages (drag-and-drop the folder).
 
-```
-index.html        Home: hero, ways to wear, collections, first pieces, story, facts, waitlist
-shop.html         All products, filter by collection (?c=libelula)
-product.html      Product page (?id=libelula-collar): finish selector, ways to wear, details, add to bag
-about.html        Brand story (short, no founder bio for now)
-assets/css/style.css   Design tokens (palette v2) + all styles
-assets/js/i18n.js      UI copy in ES (primary), EN, DE
-assets/js/catalog.js   Placeholder products, collections, line-drawing motifs
-assets/js/app.js       Language switch, shared header/footer, rendering, cart drawer
-assets/img/favicon.svg Monogram favicon
-```
+## What is in it
 
-## Design system (from the brand work)
-
-| Token | Hex | Use |
-|---|---|---|
-| Musgo | `#3E4A3A` | Hero colour, buttons, sections |
-| Piedra | `#B8B0A3` | Warm fills, borders |
-| Niebla | `#ECEAE5` | Page background |
-| Bosque | `#20261F` | Text, dark sections |
-| Liquen | `#5E6A54` | Second green, story blocks |
-| Arcilla | `#8A5A44` | Optional accent (only on the prototype banner) |
-
-Fonts (Google Fonts): **Hanken Grotesk** (wordmark at 300 with 0.42em tracking, body), **Instrument Serif** (headlines), **IBM Plex Mono** (small labels).
-
-## Features in the prototype
-
-- Language switch ES / EN / DE (saved per browser; also `?lang=en`).
-- Cart drawer with quantities, finish (silver / vermeil) and subtotal, saved in the browser.
-- Waitlist form (stores locally only; replace with Shopify customer form or Klaviyo).
-- Responsive down to phone width; keyboard and screen-reader basics (labels, aria, focus).
-- `noindex` on every page, so search engines skip the prototype.
-
-## Path to Shopify (Online Store 2.0)
-
-| Prototype | Shopify |
+| File | Purpose |
 |---|---|
-| `catalog.js` products | Shopify products + variants (Finish: Plata 925 / Vermeil oro) |
-| `ways` per product | Product metafield `custom.ways_to_wear` (list: short, long, bracelet, earring) |
-| Collections | Shopify collections (Libélula, Mariposa, Mariquita, Escarabajo …) |
-| `i18n.js` | Theme locale files + Translate & Adapt for ES / EN / DE |
-| Cart drawer | Theme cart drawer (AJAX Cart API) |
-| Waitlist | `{% form 'customer' %}` newsletter form |
-| Sections on home | Theme sections: hero, ways-to-wear, collection-grid, featured-products, story, facts, newsletter |
+| `index.html` | Home: hero, ways to wear, collections, first pieces, story, quality facts, waitlist |
+| `shop.html` | All products, filter by collection (`?c=libelula`) |
+| `product.html` | Product page (`?id=libelula-collar`): finish selector (silver / vermeil), ways to wear, details, add to bag |
+| `about.html` | Brand story (short version) |
+| `assets/css/style.css` | All styles and the palette tokens |
+| `assets/js/i18n.js` | All UI copy in ES / EN / DE |
+| `assets/js/catalog.js` | Collections, products (placeholders), motif line drawings |
+| `assets/js/app.js` | Language switch, shared header/footer, rendering, cart drawer |
 
-Suggested route: start from Shopify's free **Dawn** theme, add the design tokens to `base.css`, and rebuild the custom sections (ways-to-wear, story, facts) as section files.
+Features:
 
-## Open items (from the brand project)
+- Language switch ES / EN / DE. Remembered per browser. Also `?lang=en`.
+- Cart drawer with quantities and subtotal, stored in the browser (`localStorage`).
+- Waitlist form (stores locally only; to be replaced by Shopify customer form or Klaviyo).
+- Responsive down to phone width. Keyboard and screen-reader basics (real buttons, labels, focus states, Esc closes the bag).
 
-- Tagline final choice (current: "Lo natural, a tu manera").
-- Full motif list for the 15 launch pieces.
-- Gold karat of vermeil (14K is a placeholder).
-- Real prices, sizes, photos, shipping terms, legal pages.
-- Never state the production country. Use "Diseñado en Madrid" and "Hecho a mano".
+## Brand rules in the code
+
+- **Palette (v2, approved):** Musgo `#3E4A3A`, Piedra `#B8B0A3`, Niebla `#ECEAE5`, Bosque `#20261F`, Liquen `#5E6A54`. Arcilla `#8A5A44` is optional (only used for the prototype notice bar).
+- **Type:** Hanken Grotesk (wordmark 300, wide tracking 0.42em; body), Instrument Serif (headlines), IBM Plex Mono (small labels only).
+- **Copy rules:** say "Diseñado en Madrid" / "Hecho a mano". Never name the production location. Never say "Made in Spain".
+- No yellow, no bright colours.
+
+## Path to Shopify (Phase 4)
+
+1. Start from Shopify's **Dawn** theme (free, OS 2.0).
+2. Port `style.css` tokens into the theme settings / a custom CSS file.
+3. Rebuild each home section as a Shopify section (`sections/*.liquid`) so Palmira can edit text and images in the theme editor.
+4. Products: use Shopify **variants** for finish (Plata 925 / Vermeil) and a **metafield** (list) for ways to wear (`short`, `long`, `bracelet`, `earring`) to drive the ways-to-wear block.
+5. Languages: **Shopify Markets** + **Translate & Adapt** for ES / EN / DE.
+6. EU legal pages: right of withdrawal (14 days), privacy, legal notice, shipping; OSS VAT; GPSR product info; nickel statement.
+
+## Placeholders to replace
+
+- Product list, prices, vermeil surcharge, sizes, chain lengths → `assets/js/catalog.js`
+- Free-shipping threshold (80 €) and delivery times → `assets/js/i18n.js`
+- Gold karat of the vermeil (14K is a placeholder) → `i18n.js` `materials_text`
+- All `[FOTO …]` placeholders → real photography

@@ -149,6 +149,11 @@
   }
 
   var pdpState = { finish: 'silver', view: 0 };
+  function viewLabel(v) {
+    if (v === 'main') return { es: 'Foto editorial', en: 'Editorial photo', de: 'Editorial-Foto' }[lang];
+    if (v === 'detail') return { es: 'Detalle', en: 'Detail', de: 'Detail' }[lang];
+    return t('way_' + v);
+  }
   function renderProduct() {
     var root = document.getElementById('pdp');
     if (!root) return;
@@ -161,7 +166,6 @@
     document.title = productName(p) + ' — PÍCARA';
     var views = ['main'].concat(p.ways).concat(['detail']).slice(0, 4);
     var current = views[pdpState.view] || 'main';
-    var viewLabel = current === 'main' ? '01' : current === 'detail' ? '+' : t('way_' + current);
     var price = p.price + (pdpState.finish === 'vermeil' ? p.vermeilExtra : 0);
     var waysMini = p.ways.length ? '<div class="ways-mini"><span class="mono muted">' + t('ways_label') + '</span><div class="row">' +
       p.ways.map(function (w) { return '<div>' + WAYS[w] + '<span>' + t('way_' + w) + '</span></div>'; }).join('') + '</div></div>' : '';
@@ -174,7 +178,7 @@
       '<div class="wrap crumbs mono"><a href="index.html">' + t('home') + '</a> / <a href="shop.html?c=' + c.id + '">' + c.name + '</a> / ' + loc(TYPES[p.type]) + '</div>' +
       '<section class="wrap pdp">' +
         '<div class="pdp-gallery">' +
-          '<div class="media main ' + c.bg + '">' + MOTIFS[p.collection] + '<span class="ph">[PHOTO · ' + viewLabel.toUpperCase() + ']</span></div>' +
+          '<div class="media main ' + c.bg + '">' + MOTIFS[p.collection] + '<span class="ph">[' + viewLabel(current).toUpperCase() + ']</span></div>' +
           '<div class="thumbs">' + views.map(function (v, i) {
             var label = v === 'main' ? '01' : v === 'detail' ? '+' : t('way_' + v);
             return '<button type="button" data-view="' + i + '" aria-pressed="' + (pdpState.view === i) + '" aria-label="' + label + '">' + label + '</button>';
